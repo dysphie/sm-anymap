@@ -4,7 +4,7 @@
 #pragma newdecls required
 
 
-methodmap IntMapSnapshot < Handle
+methodmap AnyMapSnapshot < Handle
 {
 	public static any DecodeKey(char key[6])
 	{
@@ -27,7 +27,7 @@ methodmap IntMapSnapshot < Handle
 	{
 		char encoded[6];
 		view_as<StringMapSnapshot>(this).GetKey(index, encoded, sizeof(encoded));
-		return IntMapSnapshot.DecodeKey(encoded);
+		return AnyMapSnapshot.DecodeKey(encoded);
 	}
 };
 
@@ -114,9 +114,9 @@ methodmap AnyMap < Handle
 		view_as<StringMap>(this).Clear();
 	}
 
-	public IntMapSnapshot Snapshot()
+	public AnyMapSnapshot Snapshot()
 	{
-		return view_as<IntMapSnapshot>(view_as<StringMap>(this).Snapshot());
+		return view_as<AnyMapSnapshot>(view_as<StringMap>(this).Snapshot());
 	}
 
 	property int Size 
