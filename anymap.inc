@@ -8,11 +8,8 @@ methodmap AnyMapSnapshot < Handle
 {
 	public static any DecodeKey(char key[6])
 	{
-		return ((str[0] & ~0x80) << 28) | 
-				((str[1] & ~0x80) << 21) | 
-				((str[2] & ~0x80) << 14) | 
-				((str[3] & ~0x80) << 7)  | 
-				(str[4] & ~0x80);
+		return ((key[0] & ~0x80) << 28) | ((key[1] & ~0x80) << 21) | 
+		((key[2] & ~0x80) << 14) | ((key[3] & ~0x80) << 7)  | (key[4] & ~0x80);
 	}
 
 	property int Length 
