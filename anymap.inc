@@ -1,7 +1,7 @@
-#include <sourcemod>
-
-#pragma semicolon 1
-#pragma newdecls required
+#if defined _anymap_included
+ #endinput
+#endif
+#define _anymap_included
 
 
 methodmap AnyMapSnapshot < Handle
