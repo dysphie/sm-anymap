@@ -1,7 +1,7 @@
-#include <sourcemod>
-
-#pragma semicolon 1
-#pragma newdecls required
+#if defined _anymap_included
+ #endinput
+#endif
+#define _anymap_included
 
 
 methodmap AnyMapSnapshot < Handle
@@ -45,10 +45,12 @@ methodmap AnyMap < Handle
 		dest[5] = '\0';
 	}
 
+#if SOURCEMOD_V_MINOR > 10
 	public AnyMap Clone()
 	{
 		return view_as<AnyMap>(view_as<StringMap>(this).Clone());
 	}
+#endif
 
 	public bool SetValue(const any key, any value, bool replace=true)
 	{
@@ -92,12 +94,14 @@ methodmap AnyMap < Handle
 		return view_as<StringMap>(this).GetString(encoded, value, max_size, size);
 	}
 
+#if SOURCEMOD_V_MINOR > 10
 	public bool ContainsKey(const any key)
 	{
 		char encoded[6];
 		AnyMap.EncodeKey(key, encoded);
 		return view_as<StringMap>(this).ContainsKey(encoded);
 	}
+#endif
 
 	public bool Remove(const any key)
 	{
