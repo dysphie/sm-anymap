@@ -1,6 +1,8 @@
 # SourceMod AnyMap
 A wrapper around Sourcemod's [StringMap](https://sourcemod.dev/#/adt_trie/methodmap.StringMap) and [StringMapSnapshot](https://sourcemod.dev/#/adt_trie/methodmap.StringMapSnapshot), made to accept `any` as keys
 
+### Installation
+- Add to your `include` folder
 
 ### Example usage
 
